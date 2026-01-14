@@ -1,9 +1,11 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
+import AppLayout from '@/Layouts/AppLayout.vue';
 </script>
 
 <template>
-    <Head title="Video Upload System" />
+    <AppLayout>
+        <Head title="Video Upload System" />
     
     <div class="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900 flex items-center justify-center">
         <div class="max-w-4xl mx-auto px-6 py-12">
@@ -74,4 +76,5 @@ import { Head, Link } from '@inertiajs/vue3';
             </div>
         </div>
     </div>
+    </AppLayout>
 </template>

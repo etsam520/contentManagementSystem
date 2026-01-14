@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { Head, Link, router } from '@inertiajs/vue3'
+import AppLayout from '@/Layouts/AppLayout.vue'
 
 const props = defineProps({
     videos: {
@@ -54,7 +55,8 @@ function deleteVideo() {
 </script>
 
 <template>
-    <Head title="Video Library" />
+    <AppLayout>
+        <Head title="Video Library" />
     
     <div class="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900 py-12 px-4">
         <div class="max-w-7xl mx-auto">
@@ -241,4 +243,5 @@ function deleteVideo() {
             </div>
         </div>
     </div>
+    </AppLayout>
 </template>

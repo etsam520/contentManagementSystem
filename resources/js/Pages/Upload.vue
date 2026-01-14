@@ -1,6 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { Head, Link, router } from '@inertiajs/vue3'
+import AppLayout from '@/Layouts/AppLayout.vue'
 import axios from 'axios'
 
 const CHUNK_SIZE = 2 * 1024 * 1024 // 2MB chunks
@@ -129,7 +130,8 @@ function cancelUpload() {
 </script>
 
 <template>
-    <Head title="Upload Video" />
+    <AppLayout>
+        <Head title="Upload Video" />
     
     <div class="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900 py-12 px-4">
         <div class="max-w-3xl mx-auto">
@@ -239,4 +241,5 @@ function cancelUpload() {
             </div>
         </div>
     </div>
+    </AppLayout>
 </template>

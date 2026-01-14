@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\ProcessVideoUpload;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -116,6 +117,8 @@ class UploadController extends Controller
             'size' => $fileSize,
             'mime_type' => $mimeType,
         ]);
+        $url = asset('storage/' . $video->path);
+        ProcessVideoUpload::dispatch($finalPath,$title, $url);
 
         return response()->json([
             'message' => 'Video uploaded successfully',
