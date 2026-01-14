@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Mail\VideoProcessedMail;
 use App\Services\MqttService;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -9,6 +10,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class ProcessVideoUpload implements ShouldQueue
@@ -59,6 +61,20 @@ class ProcessVideoUpload implements ShouldQueue
         $qos = 0;
         $mqttService = new MqttService();
         $success = $mqttService->publish($topic, $message, $qos);
+
+       /* // Send email notification
+        $receiverEmail = env('VIDEO_NOTIFICATION_EMAIL');
+        if ($receiverEmail) {
+            Mail::to($receiverEmail)
+                ->send(new VideoProcessedMail(
+                    $this->title,
+                    $this->url,
+                    true,
+                    'Video processed successfully'
+                ));
+            Log::info("Email sent to {$receiverEmail} for video: {$this->title}");
+        }
+        */
     }
 
     public function failed(\Throwable $exception): void
@@ -74,6 +90,19 @@ class ProcessVideoUpload implements ShouldQueue
         $mqttService = new MqttService();
         $success = $mqttService->publish($topic, $message, $qos);
 
+        /* // Send error email notification
+        $receiverEmail = env('VIDEO_NOTIFICATION_EMAIL');
+        if ($receiverEmail) {
+            Mail::to($receiverEmail)
+                ->send(new VideoProcessedMail(
+                    $this->title,
+                    $this->url,
+                    false,
+                    "Video processing failed: {$exception->getMessage()}"
+                ));
+            Log::info("Error email sent to {$receiverEmail} for video: {$this->title}");
+        }
+        */
         Log::error('Video processing failed', [
             'title' => $this->title,
             'error' => $exception->getMessage(),
