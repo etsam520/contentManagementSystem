@@ -133,7 +133,7 @@ function cancelUpload() {
     <AppLayout>
         <Head title="Upload Video" />
     
-    <div class="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900 py-12 px-4">
+    <div class="min-h-screen bg-gray-900 py-12 px-4">
         <div class="max-w-3xl mx-auto">
             <!-- Header -->
             <div class="mb-8 text-center">
@@ -190,7 +190,7 @@ function cancelUpload() {
                     </div>
                     <div class="w-full bg-white/20 rounded-full h-4 overflow-hidden">
                         <div
-                            class="bg-gradient-to-r from-blue-500 to-purple-600 h-full rounded-full transition-all duration-300 flex items-center justify-center"
+                            class="bg-gray-400 h-full rounded-full transition-all duration-300 flex items-center justify-center"
                             :style="{ width: progressPercentage + '%' }"
                         >
                             <span class="text-xs text-white font-semibold">{{ progressPercentage }}%</span>
@@ -216,7 +216,7 @@ function cancelUpload() {
                     <button
                         @click="startUpload"
                         :disabled="!selectedFile || !videoTitle.trim() || isUploading"
-                        class="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold py-3 px-6 rounded-lg hover:from-blue-600 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 transform hover:scale-105"
+                        class="flex-1 bg-gray-900 text-white font-semibold py-3 px-6 rounded-lg hover:from-blue-600 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 transform hover:scale-105"
                     >
                         <span v-if="!isUploading">Start Upload</span>
                         <span v-else>Uploading...</span>

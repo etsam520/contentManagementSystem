@@ -9,6 +9,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class ProcessVideoUpload implements ShouldQueue
 {
@@ -38,7 +39,16 @@ class ProcessVideoUpload implements ShouldQueue
     {
         Log::info("Processing video: {$this->title}");
         sleep(5);
+        /*
+        * ======================// Simulate video processing logic //================
+        
+        $fileContents = file_get_contents($this->path);
+        $remotePath = 'vidyarupenacademy/videos/' . preg_match('/[^\/]+$/', $this->path, $matches)[0];
+        Storage::disk('spaces')->put($remotePath, $fileContents, 'public');
         Log::info("Finished processing video: {$this->title}");
+         if (file_exists($this->path)) {
+            unlink($this->path);
+        } */
         $topic = "video/processed";
         $message = json_encode([
             'title' => $this->title,

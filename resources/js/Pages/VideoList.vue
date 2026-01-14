@@ -58,7 +58,7 @@ function deleteVideo() {
     <AppLayout>
         <Head title="Video Library" />
     
-    <div class="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900 py-12 px-4">
+    <div class="min-h-screen bg-gray-900 py-12 px-4">
         <div class="max-w-7xl mx-auto">
             <!-- Header -->
             <div class="mb-8">
@@ -75,7 +75,7 @@ function deleteVideo() {
                     </div>
                     <Link
                         :href="route('upload.page')"
-                        class="bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold py-3 px-6 rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
+                        class="bg-blue-500 text-white font-semibold py-3 px-6 rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
                     >
                         Upload New Video
                     </Link>
@@ -92,7 +92,7 @@ function deleteVideo() {
                     <p class="text-gray-300 mb-6">Start by uploading your first video</p>
                     <Link
                         :href="route('upload.page')"
-                        class="inline-block bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold py-3 px-8 rounded-lg hover:from-blue-600 hover:to-purple-700"
+                        class="bg-blue-500 text-white font-semibold py-3 px-8 rounded-lg"
                     >
                         Upload Video
                     </Link>
@@ -108,7 +108,7 @@ function deleteVideo() {
                     @click="playVideo(video)"
                 >
                     <!-- Video Thumbnail -->
-                    <div class="relative aspect-video bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center">
+                    <div class="relative aspect-video bg-blue-600 flex items-center justify-center">
                         <svg class="w-20 h-20 text-white/50" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"></path>
                         </svg>

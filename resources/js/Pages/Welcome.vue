@@ -7,7 +7,7 @@ import AppLayout from '@/Layouts/AppLayout.vue';
     <AppLayout>
         <Head title="Video Upload System" />
     
-    <div class="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900 flex items-center justify-center">
+    <div class="min-h-screen bg-gray-900 flex items-center justify-center">
         <div class="max-w-4xl mx-auto px-6 py-12">
             <!-- Header -->
             <div class="text-center mb-12">
@@ -57,7 +57,7 @@ import AppLayout from '@/Layouts/AppLayout.vue';
             </div>
 
             <!-- Features -->
-            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="hidden mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="text-center">
                     <div class="text-3xl mb-2">⚡</div>
                     <h3 class="text-white font-semibold mb-2">Fast Upload</h3>
